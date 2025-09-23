@@ -2,12 +2,14 @@
 version: 1
 project:
   id: 82c2c8dd-38d8-4095-b0be-159a4c966e1e
-  # title:
+  title: Apuntes de álgebra lineal para ingenieros
   # description:
   # keywords: []
-  # authors: []
+  authors: [Manuel Pena]
   # github:
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  toc:
+    - file: Introduccion.md
 site:
   template: book-theme
   # options:
