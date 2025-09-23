@@ -2,7 +2,7 @@
 
 Éstos son unos apuntes de álgebra lineal para ingenieros o estudiantes de ciencias. 
 
-Diremos que una función o aplicación $f$ es [lineal](#app_lineal) si cumple dos propiedades: 
+Diremos que una función o aplicación $f$ es lineal si cumple dos propiedades: 
 
 - La respuesta de la función es proporcional al input: 
 
