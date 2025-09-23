@@ -5,9 +5,14 @@ project:
   title: Apuntes de álgebra lineal para ingenieros
   # description:
   # keywords: []
-  authors: [Manuel Pena]
+  authors:
+    - name: Manuel Pena
+      affiliation: Universidade de Vigo
   # github:
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  license: CC-BY-NC-SA-4.0
+  numbering:
+    math: false
   toc:
     - file: Introduccion.md
 site:
