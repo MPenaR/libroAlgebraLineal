@@ -11,8 +11,8 @@ project:
   # github:
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   license: CC-BY-NC-SA-4.0
-  numbering:
-    math: false
+  # numbering:
+  #   math: false
   toc:
     - file: Introduccion.md
 site:
