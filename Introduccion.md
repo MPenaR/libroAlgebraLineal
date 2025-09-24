@@ -1,8 +1,8 @@
-# Apuntes de álgebra lineal
+# Introducción
 
 Éstos son unos apuntes de álgebra lineal para ingenieros o estudiantes de ciencias. 
 
-Un proceso, fenomeno físico, etc... será lineal si cumple dos propiedades: 
+Un proceso, fenómeno físico, etc... será lineal si cumple dos propiedades: 
 
 - Las consecuencias son proporcionales a las causas 
 
