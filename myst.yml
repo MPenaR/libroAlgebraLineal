@@ -15,6 +15,7 @@ project:
   #   math: false
   toc:
     - file: Introduccion.md
+    - file: Ruffini.md
 site:
   template: book-theme
   # options:
