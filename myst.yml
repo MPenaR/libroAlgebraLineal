@@ -17,6 +17,9 @@ project:
     - file: Introduccion.md
     # - file: Operaciones_elementales.md
     - file: Inversa_Gauss.md
+    - title: Apéndices
+      children:
+      - file: Numeros_complejos
 site:
   template: book-theme
   # options:
