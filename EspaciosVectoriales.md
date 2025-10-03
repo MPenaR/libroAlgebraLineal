@@ -111,13 +111,15 @@ no se trataría de un espacio vectorial
 :label: ej_flechas
 Vamos a definir un espacio vectorial en el conjunto $V$ consistente en todas las flechas que salen de un mismo punto $O$:
 
-:::{figure}
+:::{figure} flechas_plano.jpg
+:width: 60%
 Representación gráfica del conjunto $V$.
 :::
 
 Por una parte definimos la suma de dos flechas $\mathbf{u}$ y $\mathbf{v}$ como aquella flecha $\mathbf{w}$ que va desde el punto $O$ hasta el punto concidente con la punta de la flecha $\mathbf{v}$ cuando colocamos su final sobre la punta de la flecha $\mathbf{v}$.
 
-:::{figure}
+:::{figure} suma_flechas.jpg
+:width: 60%
 Representación gráfica de la suma de flechas.
 :::
 
@@ -129,7 +131,8 @@ Por otra parte definimos el producto de un escalar $\lambda$ por una flecha $\ma
 
 - Si $\lambda<0$ entonces el resultado es una flecha con la misma dirección y sentido opuesto a la flecha $\mathbf{u}$ pero cuya longitud es $|\lambda|$ veces la longitud de $\mathbf{u}$.
 
-:::{figure}
+:::{figure} flecha_por_escalar.jpg
+:width: 60%
 Representación gráfica del producto de una flecha por un real.
 :::
 
