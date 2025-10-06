@@ -73,6 +73,30 @@ $$
 $$
 no está bien definida, pues aparece la expresión $\lambda + \mathbf{v}$ que no hace referencia a ninguna suma conocida, pues estaría sumando un escalar y un vector.
 
+De las propiedades anteriormente mencionadas se pueden deduciar muchas otras.
+
+::::{prf:property} Producto de un escalar por el vector nulo.
+Para todo escalar $k$ se tiene que $k\mathbf{0}=\mathbf{0}$.
+:::
+:enumerated: false
+:class: dropdown
+
+Teniendo en cuenta la propiedad distributiva con respecto a la suma vectorial tenemos que:
+
+$$
+\lambda \mathbf{u} = \lambda(\mathbf{u}+\mathbf{0}) = \lambda\mathbf{u}+\lambda \mathbf{0}
+$$
+
+Con lo que sumando $-\lambda\mathbf{u}$ a ambos lados obtenemos que:
+
+$$
+\mathbf{0}=\lambda \mathbf{0}
+$$
+
+:::
+::::
+
+
 :::{prf:definition} Espacio vectorial real
 Se llama espacio vectorial real a un espacio vectorial sobre el cuerpo de los reales.
 :::
