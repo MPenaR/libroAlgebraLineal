@@ -77,7 +77,7 @@ De las propiedades anteriormente mencionadas se pueden deduciar muchas otras.
 
 ::::{prf:property} Producto de un escalar por el vector nulo.
 Para todo escalar $k$ se tiene que $k\mathbf{0}=\mathbf{0}$.
-:::
+:::{prf:proof}
 :enumerated: false
 :class: dropdown
 
