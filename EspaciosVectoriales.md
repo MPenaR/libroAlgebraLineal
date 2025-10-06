@@ -25,11 +25,11 @@ $$
 
 Por otra parte, la operación $.$ se llamará _producto por un escalar_ y no es una operación interna, pues toma un elemento de $\mathbb{K}$ y otro de $V$ para devolver un elemento de $V$. Esta cumplirá las siguientes propiedades:
 
-- **Conmutatividad**: Dados un escalar $\lambda\in\mathbb{K}$ y un vector $\mathbf{u}\in V$, entonces:
+<!-- - **Conmutatividad**: Dados un escalar $\lambda\in\mathbb{K}$ y un vector $\mathbf{u}\in V$, entonces:
 
 $$
 \lambda\mathbf{u} = \mathbf{u}\lambda
-$$
+$$ -->
 
 - **Asociatividad (con respecto al producto de escalares)**: Dados dos escalares $\lambda, \mu \in \mathbb{K}$ y un vector $\mathbf{u}\in V$, entonces se tiene que:
 
