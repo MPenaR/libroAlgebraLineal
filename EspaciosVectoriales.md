@@ -102,6 +102,31 @@ $$
 Se llama espacio vectorial real a un espacio vectorial sobre el cuerpo de los reales.
 :::
 
+
+::::{prf:property} Producto del escalar cero por cualquier vector.
+Para todo vector $\mathbf{u}$ se tiene que $0\mathbf{u}=\mathbf{0}$.
+
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+
+Teniendo en cuenta la propiedad distributiva con respecto a la suma escalar tenemos que:
+
+$$
+\lambda \mathbf{u} = (\lambda+0)\mathbf{u} = \lambda\mathbf{u}+0 \mathbf{u}
+$$
+
+Con lo que sumando $-\lambda\mathbf{u}$ a ambos lados obtenemos que:
+
+$$
+\mathbf{0}=0 \mathbf{u}
+$$
+:::
+
+::::
+
+
+
 :::{prf:definition} Espacio vectorial real
 Se llama espacio vectorial complejo a un espacio vectorial sobre el cuerpo de los complejos.
 :::
