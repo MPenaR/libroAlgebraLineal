@@ -77,6 +77,7 @@ De las propiedades anteriormente mencionadas se pueden deduciar muchas otras.
 
 ::::{prf:property} Producto de un escalar por el vector nulo.
 Para todo escalar $k$ se tiene que $k\mathbf{0}=\mathbf{0}$.
+
 :::{prf:proof}
 :enumerated: false
 :class: dropdown
@@ -92,8 +93,8 @@ Con lo que sumando $-\lambda\mathbf{u}$ a ambos lados obtenemos que:
 $$
 \mathbf{0}=\lambda \mathbf{0}
 $$
-
 :::
+
 ::::
 
 
