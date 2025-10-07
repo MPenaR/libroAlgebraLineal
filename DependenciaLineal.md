@@ -35,6 +35,7 @@ $$
 \alpha_1 \mathbf{u}_1 + \alpha_2 \mathbf{u}_2 + \dots + \alpha_n \mathbf{u}_n = \mathbf{0}
 $$
 :::{prf:proof}
+:class: dropdown
 Tenemos que probar la doble implicación. Por una parte si $S$ es un sistema linealmente dependiente, entonces existe al menos un vector que se puede escribir como combinación lineal de los demás. Supongamos que dicho vector es el $\mathbf{u}_1$, por comodidad, pues si fuese otro la demostración sería completamente análoga. Por ser combinación lineal, entonces existen $n-1$ escalares $\beta_2, \beta_3, \dots, \beta_n$, tales que:
 
 $$
@@ -74,3 +75,65 @@ $$
 es decir, que $\mathbf{u}_1$ es combinación lineal del resto de vectores de $S$.
 :::
 ::::
+
+## Espacio generado por un conjunto de vectores
+
+::::{prf:property} 
+Dado un espacio vectorial $V$ y un subconjunto de vectores $S=\left\{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n\right\}$ de $V$, el conjunto $U$ formado por todo aquel vector de $V$ que se puede escribir como combinación lineal de vectores de $S$ es un subespacio vectorial de $S$ es un subespacio vectorial de $V$. 
+
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+
+Sean $\mathbf{v}$ y $\mathbf{w}$ dos vectores que se pueden escribir como combinación lineal de vectores de $S$. Entonces existen $n$ escalares $\alpha_1, \alpha_2, \dots, \alpha_n$ y otros $n$ escalares $\beta_1, \beta_2, \dots, \beta_n$ tales que:
+
+$$
+\mathbf{v} = \alpha_1\mathbf{u}_1 + \alpha_2\mathbf{u}_2 + \dots \alpha_n\mathbf{u}_n 
+$$
+$$
+\mathbf{w} = \beta_1\mathbf{u}_1 + \beta_2\mathbf{u}_2 + \dots \beta_n\mathbf{u}_n 
+$$
+
+Si ahora construimos una combinación lineal de dichos vectores, $\lambda\mathbf{v}+\mu\mathbf{w}$obtenemos que:
+
+$$
+\lambda\mathbf{v}+\mu\mathbf{w} = \left(\lambda\alpha_1+\mu\beta_1\right)\mathbf{u}_1 + \left(\lambda\alpha_2+\mu\beta_2\right)\mathbf{u}_2 + \dots \left(\lambda\alpha_n+\mu\beta_n\right)\mathbf{u}_n
+$$
+con lo que definiendo $\gamma_i = \lambda\alpha_i+\mu\beta_i$ desde $i=1$ hasta $n$, se tiene que 
+$$
+\lambda\mathbf{v}+\mu\mathbf{w} = \gamma_1\mathbf{u}_1 + \gamma_2\mathbf{u}_2 + \dots \gamma_n\mathbf{u}_n 
+$$
+:::
+
+::::
+
+Al espacio vectorial formado por las combinaciones lineales de elementos de $S$ lo denotamos por $\mathscr{L}(S)$ y decimos que $\mathscr{L}(S)$ está generado por $S$. 
+
+:::{prf:definition} Sistema generador
+Dado un espacio vectorial $V$ y un subespacio vectorial $U$ decimos que el subconjunto $S$ de $V$ es un sistema generador de $U$ si $U=\mathscr{L}(S)$. 
+:::
+
+Otra forma de definir al espacio $\mathscr{L}(S)$ es el menor de los subespacios vectoriales que contiene a $S$, entendiendo _menor_ en el sentido de la inclusión.
+
+::::{prf:property} 
+Todo subespacio vectorial $U$ que contenga a $S$ contiene también a $\mathscr{L}(S)$. 
+
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+
+Si $U$ es un espacio vectorial, entonces contiene a cualquier combinación lineal de sus elementos. Como $S$ está contenido en $U$, entonces $U$ contiene en particular a cualquier combinación lineal de los vectores de $S$, por lo tanto contiene a cualquier elemento de $\mathscr{L}(S)$.
+:::
+::::
+
+:::{prf:example}
+Dado el espacio vectorial $V=\mathbb{R}^3$, el conjunto $S=\{(1,1,0)\}$ y el subespacio vectorial
+
+$$
+U = \left\{(x,y,0);\,x,y\in\mathbb{R}^2\right\}
+$$
+
+Es sencillo comprobar que $U$ contiene a todo vector del conjunto $S$, pues el único elemento del conjunto es el vector $(1,1,0)$, que se puede obtener con $x=y=1$ en la definición de $U$.
+
+Por otra parte, $\mathscr{L}(S)=\mathscr{L}(\{(1,1,0)\})=\{(\lambda,\lambda,0);\, \lambda\in\mathbb{R}\}$, y dicho espacio también está contenido en $U$ pues basta hacer $x=y$ en la definición de $U$. Sin embargo $U$ contiene vectores que no están en $\mathscr{L}(S)$ como por ejemplo el vector $(1,2,0)$.
+:::
