@@ -98,11 +98,6 @@ $$
 ::::
 
 
-:::{prf:definition} Espacio vectorial real
-Se llama espacio vectorial real a un espacio vectorial sobre el cuerpo de los reales.
-:::
-
-
 ::::{prf:property} Producto del escalar cero por cualquier vector.
 Para todo vector $\mathbf{u}$ se tiene que $0\mathbf{u}=\mathbf{0}$.
 
@@ -128,6 +123,10 @@ $$
 
 
 :::{prf:definition} Espacio vectorial real
+Se llama espacio vectorial real a un espacio vectorial sobre el cuerpo de los reales.
+:::
+
+:::{prf:definition} Espacio vectorial complejo
 Se llama espacio vectorial complejo a un espacio vectorial sobre el cuerpo de los complejos.
 :::
 
