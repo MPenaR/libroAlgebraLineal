@@ -1,4 +1,4 @@
-# Espacios vectoriales
+# Espacios vectoriales y subespacios vectoriales
 
 :::{prf:definition} Espacio vectorial
 :label: espacio_vectorial
@@ -262,6 +262,39 @@ y sabemos que ambas operaciones ya cumplían todas las propiedades de un espacio
 Dado un espacio vectorial $(V,+,.)$ diremos que un subconjunto $U\subset V$ es un subespacio vectorial de $V$ cuando $(U,+,.)$ sea un [espacio vectorial](#espacio_vectorial) con las mismas operaciones suma y producto por un escalar que $V$.
 :::
 
+
+::::{prf:property}
+La intersección de subespacios vectoriales es un subespacio vectorial. 
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+:::
+
+Sean $V$ y $W$ dos subespacios vectoriales de un espacio vectorial $U$. El conjunto $V\cap W$ será un subconjunto de $U$, por lo que queremos probar que tanto la suma de vectores como el producto por un escalar son cerrados en $V\cap W$.
+
+Supongamos dos escalares cualesquiera $\alpha$ y $\beta$ y dos vectores $\mathbf{u}$ y $\mathbf{v}$ pertenecientes a la interseección $V\cap W$. 
+
+Por pertenecer a la intersección, tenemos que ambos vectores pertenecen tanto a $V$ como a $W$. Ahora bien, por ser $V$ un espacio vectorial se tiene que $\alpha\mathbf{u}+\beta\mathbf{v}$ tiene que pertenecer también a $V$. Del mismo modo se demuestra que también tiene que pertenecer a $W$. Por lo tanto, por pertenecer a ambos, se tiene que $\alpha\mathbf{u}+\beta\mathbf{v}$ pertenece a $V\cap W$, por lo que $V\cap W$ es un espacio vectorial.
+::::
+
+Sin embargo la unión de dos subespacios vectoriales en general no será un espacio vectorial. 
+
+:::{prf:example}
+Sea $U=\mathbb{R^2}$ el espacio vectorial con las operaciones usuales, definimos dos subespacios vectoriales:
+
+$$
+V = \{(x,0);\;x\in\mathbb{R}\}
+$$
+y
+$$
+W = \{(0,y);\;y\in\mathbb{R}\}
+$$
+
+Es sencillo comprobar que tanto $V$ como $W$ son subespacios vectoriales de $V$, y sin embargo, su unión $V\cap W$ no lo es.
+
+Para demostrar que la unión no es un espacio vectorial bastaría con tomar, por ejemplo, los vectores $\mathbf{v}=(1,0)$ y $\mathbf{w}=(0,1)$. Por pertenecer $\mathbf{v}$ a $V$ se tiene que $\mathbf{v}\in V\cup W$. Del mismo modo, por pertenecer $\mathbf{w}$ a $W$ se tiene que $\mathbf{w}\in V \cup W$. Sin embargo $\mathbf{v}+\mathbf{w}=(1,1)$ el cual no pertenece a $V\cup W$.  
+
+:::
 
 
 
