@@ -250,7 +250,7 @@ $$
 El producto por un escalar también devuelve un elemento de $C$:
 
 $$
-\lambda(x,y,x)=(\lambda x, y, \lambda x ) \in C
+\lambda(x,y,x)=(\lambda x, \lambda y, \lambda x ) \in C
 $$
 
 y sabemos que ambas operaciones ya cumplían todas las propiedades de un espacio vectorial, pues $\mathbb{R}^3$ lo era.
@@ -261,6 +261,16 @@ y sabemos que ambas operaciones ya cumplían todas las propiedades de un espacio
 
 Dado un espacio vectorial $(V,+,.)$ diremos que un subconjunto $U\subset V$ es un subespacio vectorial de $V$ cuando $(U,+,.)$ sea un [espacio vectorial](#espacio_vectorial) con las mismas operaciones suma y producto por un escalar que $V$.
 :::
+
+::::{prf:criterion}
+Dado un espacio vectorial $(V,+,.)$ sobre $\mathbb{K}$, un subconjunto $C$ de $V$ será subespacio vectorial sí y solo sí para cualquier par de escalares $\alpha,\beta\in\mathbb{K}$ y cualquier par de vectores $\mathbf{u},\mathbf{v}\in C$, se tiene que el vector  $\alpha\mathbf{u}+\beta\mathbf{v}$ pertenece a $C$.
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+
+Por una parte, haciendo $\alpha=\beta=1$ tenemos que la anterior condición es equivalente a que la suma sea una operación interna, mientras que haciendo $\beta=0$ tenemos que es equivalente a que el producto escalar devuelva un resultado en $C$. 
+:::
+::::
 
 
 ::::{prf:property}
