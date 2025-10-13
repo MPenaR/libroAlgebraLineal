@@ -25,6 +25,7 @@ project:
         - file: Coordenadas.md
     # - file: Operaciones_elementales.md
     - file: Inversa_Gauss.md
+    - file: Cajon_de_sastre.md
 site:
   template: book-theme
   # options:
