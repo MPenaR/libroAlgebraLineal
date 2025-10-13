@@ -22,6 +22,7 @@ project:
       children:
         - file: EspaciosVectoriales.md
         - file: DependenciaLineal.md
+        - file: Coordenadas.md
     # - file: Operaciones_elementales.md
     - file: Inversa_Gauss.md
 site:

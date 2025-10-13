@@ -208,7 +208,16 @@ Dado un espacio vectorial $(V,+.)$ sobre un cuerpo $\mathbb{K}$ finitamente gene
 :enumerated: False
 :class:dropdown
 
-Supongamos que tenemos dos bases $\mathcal{B}$ y $\mathcal{B}'$ de un mismo espacio vectorial $V$ y que $\mathcal{B}'$ tiene más elementos que $B$.
+Supongamos que tenemos dos bases de un mismo espacio vectorial con un número diferente de elementos. Vamos a llamar 
+
+$$
+\mathcal{B} = \{\mathbf{u}_1,\mathbf{u}_2,\dots, \mathbf{u}_n \}
+$$
+a la que tiene menos elementos de las dos, y
+$$
+\mathcal{B'}= \{\mathbf{u}'_1,\mathbf{u}'_2,\dots, \mathbf{u}'_m \}
+$$
+a la otra.
 
 ::::
 
