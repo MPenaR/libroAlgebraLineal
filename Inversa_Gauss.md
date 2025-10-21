@@ -235,6 +235,40 @@ $$
 El proceso puede parecer más tedioso que mediante el método de Kramer, pero a poco que la matriz sea grande, el método de Gauss es mucho más eficiente, pues evita calcular determinantes.
 
 
+### Código para el cálculo de la inversa
+
+A continuación se añade el código para el cálculo de una inversa por el método de Gauss escrito en python.
+::::{tab-set}
+:::{tab-item} Fortran
+```fortran
+
+
+! HAY QUE ACABARLA
+function Inversa(A) result(A)
+real, intent(in) :: A(:,:)
+real :: A_inv(size(A,1), size(A,1))
+    !obtenemos el tamaño de la matriz A
+    n = A.shape[0]
+    !Concatenamos la matriz identidad de tamaño n a su derecha
+    B = np.concatenate([A, np.eye(n)], axis=1)
+
+    !Escalonamiento
+    for j in range(n-1):  !para cada columna (excepto la última)
+        B[j, :] = B[j, :] / B[j, j]  !hacemos el pivote = 1
+        for i in range(j+1, n):  !para fila por debajo del pivote
+            B[i, :] = B[i, :] - B[j, :]*B[i, j]
+    B[n-1, :] = B[n-1, :] / B[n-1, n-1]  !hacemos el pivote = 1
+
+    !Reducción
+    for j in reversed(range(1, n)):
+        for i in reversed(range(j)):
+            B[i, :] = B[i, :] - B[j, :]*B[i, j]
+    A_inv = B[:, n:]
+end function
+```
+:::
+
+:::{tab-item} Python
 ```python
 import numpy as np
 from numpy.typing import NDArray
@@ -261,4 +295,36 @@ def Inversa(A: real_array) -> real_array:
             B[i, :] = B[i, :] - B[j, :]*B[i, j]
     A_inv = B[:, n:]
     return A_inv
+
+if __name__ == "__main__":
+    A = np.array([[1, 2],
+                  [3, 4]])
+    A_inv = Inversa(A)
+    print(A)
+    print(A_inv)
 ```
+:::
+
+:::{tab-item} Python+Numpy (numérico)
+```python
+import numpy as np
+from numpy.linalg import inv
+A = np.array([[1, 2],
+              [3, 4]])
+print(A)
+print(inv(A))
+```
+:::
+
+
+
+:::{tab-item} Python + Sympy (simbólico)
+```python
+from sympy import Matrix, pretty_print
+A = Matrix([[1, 2],
+            [3, 4]])
+pretty_print(A)
+pretty_print(A.inv())
+```
+:::
+::::
