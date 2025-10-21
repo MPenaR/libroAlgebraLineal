@@ -16,6 +16,7 @@ Basta con tomar $k'=\frac{1}{k}$ en la definición de dependencia lineal, pues s
 ::::
 
 :::{prf:definition} Combinación lineal
+:label: combinacion_lineal
 Dado  un conjunto de vectores $S=\left\{\mathbf{u}_1, \mathbf{u}_n, \dots, \mathbf{u}_n\right\}$, decimos que $\mathbf{v}$ es combiación lineal de los vectores de $S$, o que depende linealmente de los vectores de $S$, si existen $n$ escalares $\alpha_1,\alpha_2,\dots, \alpha_n$ tales que:
 
 $$
