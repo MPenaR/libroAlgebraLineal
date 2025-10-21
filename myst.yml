@@ -26,6 +26,7 @@ project:
     # - file: Operaciones_elementales.md
     - file: Inversa_Gauss.md
     - file: Cajon_de_sastre.md
+    - file: EstructurasAlgebraicas.md
 site:
   template: book-theme
   # options:
