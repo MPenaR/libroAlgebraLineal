@@ -235,40 +235,75 @@ $$
 El proceso puede parecer más tedioso que mediante el método de Kramer, pero a poco que la matriz sea grande, el método de Gauss es mucho más eficiente, pues evita calcular determinantes.
 
 
-### Código para el cálculo de la inversa
+### Implementación del algoritmo de Gauss en un lenguaje de programación
 
-A continuación se añade el código para el cálculo de una inversa por el método de Gauss escrito en python.
+A continuación se añade el código para el cálculo de una inversa por el método de Gauss escrito en diferentes lenguajes de programación. Se incluye una opción en [Fortran](https://fortran-lang.org/) por ser un lenguaje bastante parecido al lenguaje matemático y que, aunque actualmente está en desuso, todavía está presente en muchas librerías de cálculo numérico. Además se incluye una implementación en [Python](https://www.python.org/) así como opciones ya implementadas en paquetes numéricos como [Numpy](https://www.numpy.org) o simbólicos como [Sympy](https://www.sympy.org).
 ::::{tab-set}
 :::{tab-item} Fortran
+:sync: tab_fortran
 ```fortran
+program test_inversa
+        real :: A(2,2), A_inv(2,2)
+        
+        A(1,:) = [3., 2.]
+        A(2,:) = [4., 4.]
 
+        A_inv = Inversa(A)
 
-! HAY QUE ACABARLA
-function Inversa(A) result(A)
-real, intent(in) :: A(:,:)
-real :: A_inv(size(A,1), size(A,1))
-    !obtenemos el tamaño de la matriz A
-    n = A.shape[0]
-    !Concatenamos la matriz identidad de tamaño n a su derecha
-    B = np.concatenate([A, np.eye(n)], axis=1)
+        print*, "A:"
+        do i = 1, 2
+                print'(2F6.2)', A(i,:)
+        end do
+        print*, "A_inv:"
+        do i = 1, 2
+                print'(2F6.2)', A_inv(i,:)
+        end do
 
-    !Escalonamiento
-    for j in range(n-1):  !para cada columna (excepto la última)
-        B[j, :] = B[j, :] / B[j, j]  !hacemos el pivote = 1
-        for i in range(j+1, n):  !para fila por debajo del pivote
-            B[i, :] = B[i, :] - B[j, :]*B[i, j]
-    B[n-1, :] = B[n-1, :] / B[n-1, n-1]  !hacemos el pivote = 1
+        contains
+        
+                function Inversa(A) result(A_inv)
+                        real, intent(in) :: A(:,:)
+                        real :: A_inv(size(A, 1), size(A, 1))
 
-    !Reducción
-    for j in reversed(range(1, n)):
-        for i in reversed(range(j)):
-            B[i, :] = B[i, :] - B[j, :]*B[i, j]
-    A_inv = B[:, n:]
-end function
+                        integer :: i, j, n
+                        real:: B(size(A,1), 2*size(A, 1))
+                        
+                        n = size(A, 1) ! numero de filas/columnas
+                        
+                        ! creamops la matriz ampliada
+                        B(1:n, 1:n) = A   ! a la izquierda la matriz A
+                        
+                        B(1:n, n+1:2*n) = 0  ! a la derecha la matriz identidad
+                        do i=1, n
+                                B(i,n+i) = 1
+                        end do
+
+                        ! escalonamiento
+                        do j=1, n 
+                                B(j, :) = B(j, :)/B(j, j) !hacemos el pivote = 1
+                                do i = j+1, n
+                                        B(i,:) = B(i,:) - B(i,j)*B(j, :)
+                                end do
+                               
+                        end do
+                        ! reducción
+                        do j=n, 1, -1
+                                do i=j-1, 1, -1
+                                        B(i,:) = B(i,:) - B(i,j)*B(j,:)
+                                end do
+                        end do
+                        
+                        ! obtenemos la inversa como la matriz a la derecha
+                        A_inv = B(1:n, n+1: 2*n)
+
+                end function
+
+end program 
 ```
 :::
 
 :::{tab-item} Python
+:sync: tab_python
 ```python
 import numpy as np
 from numpy.typing import NDArray
@@ -297,20 +332,23 @@ def Inversa(A: real_array) -> real_array:
     return A_inv
 
 if __name__ == "__main__":
-    A = np.array([[1, 2],
-                  [3, 4]])
+    A = np.array([[3, 2],
+                  [4, 4]])
     A_inv = Inversa(A)
+    print('A:')
     print(A)
+    print('A_inv:')
     print(A_inv)
 ```
 :::
 
 :::{tab-item} Python+Numpy (numérico)
+:sync: tab_numpy
 ```python
 import numpy as np
 from numpy.linalg import inv
-A = np.array([[1, 2],
-              [3, 4]])
+A = np.array([[3, 2],
+              [4, 4]])
 print(A)
 print(inv(A))
 ```
@@ -319,12 +357,66 @@ print(inv(A))
 
 
 :::{tab-item} Python + Sympy (simbólico)
+:sync: tab_sympy
 ```python
 from sympy import Matrix, pretty_print
-A = Matrix([[1, 2],
-            [3, 4]])
+A = Matrix([[3, 2],
+            [4, 4]])
+print("A:")
 pretty_print(A)
+print("A_inv:")
 pretty_print(A.inv())
 ```
 :::
+::::
+
+A continuación se muestran los resultados obtenidos:
+::::{tab-set}
+:::{tab-item} Fortran
+:sync: tab_fortran
+```shell
+ A:
+  3.00  2.00
+  4.00  4.00
+ A_inv:
+  1.00 -0.50
+ -1.00  0.75
+```
+:::
+:::{tab-item} Python
+:sync: tab_python
+```shell
+A:
+[[3 2]
+ [4 4]]
+A_inv:
+[[ 1.   -0.5 ]
+ [-1.    0.75]]
+```
+:::
+:::{tab-item} Python+Numpy
+:sync: tab_numpy
+```shell
+A:
+[[3 2]
+ [4 4]]
+A_inv:
+[[ 1.   -0.5 ]
+ [-1.    0.75]]
+```
+:::
+:::{tab-item} Python+Sympy
+:sync: tab_sympy
+```shell
+A:
+⎡3  2⎤
+⎢    ⎥
+⎣4  4⎦
+A_inv:
+⎡1   -1/2⎤
+⎢        ⎥
+⎣-1  3/4 ⎦
+```
+:::
+
 ::::

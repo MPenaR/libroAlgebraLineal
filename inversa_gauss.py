@@ -26,15 +26,27 @@ def Inversa(A: real_array) -> real_array:
 if __name__=="__main__":
     from sympy import Matrix, pretty_print
 
-    B = Matrix([[1, 2],
-                [3, 4]])
-    print('Matriz original:')
-    pretty_print(B)
-    print('Inversa:')
-    pretty_print(B.inv())
+    A = Matrix([[3, 2],
+                [4, 4]])
+    print("A:")
+    pretty_print(A)
+    print("A_inv:")
+    pretty_print(A.inv())
 
     #nuestra solución:
-    A = np.array([[1,2],
-                  [3,4]])
-    print("Nuestra solucion")
-    print(Inversa(A))
+    A = np.array([[3, 2],
+                  [4, 4]])
+    A_inv = Inversa(A)
+    print('A:')
+    print(A)
+    print('A_inv:')
+    print(A_inv)
+
+    from numpy.linalg import inv
+    A = np.array([[3, 2],
+                  [4, 4]])
+    A_inv = inv(A)
+    print('A:')
+    print(A)
+    print('A_inv:')
+    print(A_inv)
