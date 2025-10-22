@@ -5,7 +5,7 @@
 Llamamos grupo a una estructura algebraica $(G,*)$ formada por un conjunto $G$ y una operación $*:G\times G \to G$ que cumple:
 - **Asociatividad:** Para todo $a,b,c\in G$ se tiene que $(a*b)*c=a*(b*c)$.
 - **Existencia de elemento neutro:** Existe un elemento $e\in G$ que cumple $e*a=a$ y $a*e=a$ para todo $a\in G$.
-- **Existendia de elemento inverso:** Para todo $a\in G$ existe otro elemento $b\in G$ que llamamos inverso de $a$ y cumple $a*b=e$ y $b*a=e$.
+- **Existencia de elemento inverso:** Para todo $a\in G$ existe otro elemento $b\in G$ que llamamos inverso de $a$ y cumple $a*b=e$ y $b*a=e$.
 - 
 :::
 
