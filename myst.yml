@@ -23,12 +23,15 @@ project:
         - file: EspaciosVectoriales.md
         - file: DependenciaLineal.md
         - file: Coordenadas.md
+    - title: Aplicaciones lineales
+      children:
+        - file: AplicacionesLineales.md 
     # - file: Operaciones_elementales.md
     - file: Inversa_Gauss.md
     - file: Cajon_de_sastre.md
     - file: EstructurasAlgebraicas.md
 site:
   template: book-theme
-  # options:
+  options:
   #   favicon: favicon.ico
-  #   logo: site_logo.png
+      logo: flechas_plano.jpg

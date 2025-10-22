@@ -32,7 +32,7 @@ $$
 
 ## Isomorfismo de coordenadas
 
-Como veremos un isomorfismo es una [aplicación lineal](#aplicacion_lineal) [biyectiva](#f_biyectiva). Dado un espacio vectorial $V$ de dimensión $n$ y una base $\mathcal{B}$, vamos a probar que la aplicación $T:V\to \mathbb{R}_n$ que a cada vector de $V$ le asigna sus coordenadas en la base $\mathcal{B}$, es una isomorfismo.
+Como veremos un isomorfismo es una [aplicación lineal](#app_lineal) [biyectiva](#f_biyectiva). Dado un espacio vectorial $V$ de dimensión $n$ y una base $\mathcal{B}$, vamos a probar que la aplicación $T:V\to \mathbb{R}_n$ que a cada vector de $V$ le asigna sus coordenadas en la base $\mathcal{B}$, es una isomorfismo.
 
 ::::{prf:definition} Isomorfismo de coordenadas
 Dado un espacio vectorial $V$ de dimensión $n$ y una base $\mathcal{B}$ de $V$, llamamos isomorfismo de coordenadas a la aplicación lineal:
