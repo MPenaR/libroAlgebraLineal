@@ -135,3 +135,19 @@ $$
 \mathrm{dim}(U)=\mathrm{dim}(\ker f) + \mathrm{dim}(\mathrm{Im}f)
 $$
 ::::
+
+## Matriz de una aplicación lineal asociada
+
+Supongamos que tenemos una aplicación lineal $f:U\to V$ y tenemos una base $\mathcal{B}_U=\{\mathbf{u}_1,\mathbf{u}_2,\dots,\mathbf{u}_n\}$ de $U$, y otra $\mathcal{B}_V=\{\mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_m\}$ de $V$. Si conociésemos el valor de $f(\mathbf{u}_1)$ automáticamente podríamos conocer el valor de $f(\mathbf{u})$ para cualquier $\mathbf{u}\in\mathscr{L}(\{\mathbf{u}_1\})$, pues $\mathbf{u}=k\mathbf{u}_1$ así que
+
+$$
+f(\mathbf{u})=f(k\mathbf{u}_1)=kf(\mathbf{u}_1)
+$$
+donde nos acabamos de aprovechar de que $f$ es [lineal](#app_lineal).
+
+Del mismo modo, si conociésemos las imágenes por $f$ de cada uno de los vectores de $\mathcal{B}_U$, es decir, si conociésemos $\{f(\mathbf{u}_1),f(\mathbf{u}_2),\dots, f(\mathbf{u}_n)\}$, ya podríamos conocer la imagen por $f$ de cualquier vector $\mathbf{u}\in U$, pues:
+
+$$
+f(\mathbf{u})=f((x_1,x_2,\dots, x_n)_{\mathcal{B}_U}) = \sum_{i=1}^n x_i f(\mathbf{u}_i)
+$$
+donde $(x_1,x_2,\dots, x_n)$ son las coordenadas del vector $\mathbf{u}$ en la base $\mathcal{B}_U$.
