@@ -241,7 +241,9 @@ A continuación se añade el código para el cálculo de una inversa por el mét
 ::::{tab-set}
 :::{tab-item} Fortran
 :sync: tab_fortran
-```fortran
+```{code}fortran
+:linenos:
+:emphasize-lines: 20-55
 program test_inversa
         real :: A(2,2), A_inv(2,2)
         
@@ -304,7 +306,9 @@ end program
 
 :::{tab-item} Python
 :sync: tab_python
-```python
+```{code}python
+:linenos:
+:emphasize-lines: 7-25
 import numpy as np
 from numpy.typing import NDArray
 
@@ -344,12 +348,15 @@ if __name__ == "__main__":
 
 :::{tab-item} Python+Numpy (numérico)
 :sync: tab_numpy
-```python
+```{code}python
+:linenos:
 import numpy as np
 from numpy.linalg import inv
 A = np.array([[3, 2],
               [4, 4]])
+print("A:")
 print(A)
+print("A_inv:")
 print(inv(A))
 ```
 :::
@@ -358,7 +365,8 @@ print(inv(A))
 
 :::{tab-item} Python + Sympy (simbólico)
 :sync: tab_sympy
-```python
+```{code}python
+:linenos:
 from sympy import Matrix, pretty_print
 A = Matrix([[3, 2],
             [4, 4]])
