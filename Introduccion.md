@@ -43,3 +43,6 @@ Por lo tanto la distancia requerida no es proporcional a la velocidad inicial, e
 
 
 
+Hasta ahora dijimos que una aplicación lineal es aquella en la que se cumple que la suma de las causas es igual a la suma de los efectos, etc... Pero no hablamos de qué van a ser esas causas. Para ser los más generales posibles, las aplicaciones lineales estarán definidas como funciones $f:U\to V$ entre dos conjuntos $U$ y $V$ en los que tenemos que tener definida una noción de suma y de *proporcionalidad*. Como veremos estos conjuntos los llamaremos en general [espacios vectoriales](#espacio_vectorial) (aunque también se les conoce como espacios lineales).
+
+

@@ -25,11 +25,23 @@ project:
         - file: Coordenadas.md
     - title: Aplicaciones lineales
       children:
-        - file: AplicacionesLineales.md 
+        - file: AplicacionesLineales.md
+    - title: Autovalores y autovectores
+      children: 
+        - file: Autovalores.md 
+    - title: Formas bilineales y producto escalar
+      children:
+        - file: FormasBilineales.md
+        - file: ProductoEscalar.md 
+    - title: Formas cuadráticas, cónicas y cuádricas
+      children: 
+        - file: FormasCuadraticas.md
     # - file: Operaciones_elementales.md
-    - file: Inversa_Gauss.md
-    - file: Cajon_de_sastre.md
-    - file: EstructurasAlgebraicas.md
+    - title: Complementos
+      children:
+        - file: Inversa_Gauss.md
+        - file: Cajon_de_sastre.md
+        - file: EstructurasAlgebraicas.md
 site:
   template: book-theme
   options:

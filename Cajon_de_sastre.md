@@ -1,4 +1,4 @@
-# Complementos
+# Definiciones varias
 
 En esta sección solo se incluyen definiciones de temas externos a álgebra que son necesarios durante alguna parte del curso.
 
