@@ -143,9 +143,11 @@ Supongamos que tenemos una aplicación lineal $f:U\to V$ y tenemos una base $\ma
 $$
 f(\mathbf{u})=f(k\mathbf{u}_1)=kf(\mathbf{u}_1)
 $$
+donde nos acabamos de aprovechar de que $f$ es [lineal](#app_lineal).
 
 Del mismo modo, si conociésemos las imágenes por $f$ de cada uno de los vectores de $\mathcal{B}_U$, es decir, si conociésemos $\{f(\mathbf{u}_1),f(\mathbf{u}_2),\dots, f(\mathbf{u}_n)\}$, ya podríamos conocer la imagen por $f$ de cualquier vector $\mathbf{u}\in U$, pues:
 
 $$
-f(\mathbf{u})=f((x_1,x_2,\dots, x_n)_{\mathcal{B}_U})
+f(\mathbf{u})=f((x_1,x_2,\dots, x_n)_{\mathcal{B}_U}) = \sum_{i=1}^n x_i f(\mathbf{u}_i)
 $$
+donde $(x_1,x_2,\dots, x_n)$ son las coordenadas del vector $\mathbf{u}$ en la base $\mathcal{B}_U$.
