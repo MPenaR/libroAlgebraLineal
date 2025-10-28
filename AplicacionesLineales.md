@@ -136,7 +136,7 @@ $$
 $$
 ::::
 
-## Matriz de una aplicación lineal asociada
+## Matriz asociada a una aplicación lineal
 
 Supongamos que tenemos una aplicación lineal $f:U\to V$ y tenemos una base $\mathcal{B}_U=\{\mathbf{u}_1,\mathbf{u}_2,\dots,\mathbf{u}_n\}$ de $U$, y otra $\mathcal{B}_V=\{\mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_m\}$ de $V$. Si conociésemos el valor de $f(\mathbf{u}_1)$ automáticamente podríamos conocer el valor de $f(\mathbf{u})$ para cualquier $\mathbf{u}\in\mathscr{L}(\{\mathbf{u}_1\})$, pues $\mathbf{u}=k\mathbf{u}_1$ así que
 
@@ -151,3 +151,211 @@ $$
 f(\mathbf{u})=f((x_1,x_2,\dots, x_n)_{\mathcal{B}_U}) = \sum_{i=1}^n x_i f(\mathbf{u}_i)
 $$
 donde $(x_1,x_2,\dots, x_n)$ son las coordenadas del vector $\mathbf{u}$ en la base $\mathcal{B}_U$.
+
+
+
+:::{prf:example} Derivación
+:label: ex_deriv
+Vamos a calcular la matriz asociada a la aplicación $f:\mathbb{R}_2[t]\to\mathbb{R}_1[t]$ tal que 
+$$
+f(p(t)) = p'(t)
+$$
+
+Es decir es aquella aplicación que al polinomio $a_0 + a_1t + a_2t^2$ le asigna el polinomio $a_1 + 2a_2t$.
+
+Las bases usuales de los espacios vectoriales de polinomios en este caso son $\{1,t,t^2\}$ y $\{1,t\}$, por lo que la matriz asociada a la aplicación lineal en dichas bases es: 
+
+$$
+A=\begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+\end{bmatrix}
+$$
+
+Así, por ejemplo, si queremos calcular la derivada del polinomio $p(t) = 3 + 4t + 5t^2$, cuyas coordenadas en la base usual son $(3,4,5)$, escribirlas como una matriz columna y multiplicar por $A$:
+
+$$
+\begin{bmatrix}
+4 \\
+10
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+\end{bmatrix}
+\begin{bmatrix}
+3 \\ 
+4 \\ 
+5
+\end{bmatrix}
+$$
+
+De donde obtenemos que el polinomio derivada de $p$ tiene coordenadas $(4,10)$ en la base usual, es decir $p'(t)=4 + 10t$.
+:::
+
+
+### Cambio de coordenadas de la matriz asociada a una aplicación lineal
+
+
+:::{prf:example}
+Como ya comentamos en el [](#ex_deriv), la matriz asociada la derivación de polinomios de segundo grado en las bases usuales es: 
+
+$$
+A = \begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+\end{bmatrix}
+$$
+
+Vamos a calcular cual sería la matriz $A'$ asociada a dicha aplicación lineal en las bases $\mathcal{B}_2=\{1-t^2, t^2 - t, t^2 + t\}$ y $\mathcal{B}_1=\{t,1-t\}$.
+
+Por una parte, la matriz de cambio de la base $\mathcal{B}_2$ a la base usual de $\mathbb{R}_2[t]$ es: 
+
+$$
+P = 
+\begin{bmatrix}
+ 1 & 0 & 0\\
+ 0 &-1 & 1\\
+-1 & 1 & 1
+\end{bmatrix}
+$$
+
+y por otra parte la matriz de cambio de $\mathcal{B}_1$ a la base usual de $\mathbb{R}_1[t]$ es:
+
+$$
+Q = \begin{bmatrix}
+0 & 1 \\
+1 & -1 
+\end{bmatrix}
+$$
+
+Para calcular $A'$ necesitamos $Q^{-1}$, que es la matriz que cambia de la base usual de $\mathbb{R}_1[t]$ a $\mathcal{B}_1$, asi que calculamos la inversa mediante el método de Gauss:
+
+$$
+\begin{bmatrix}
+0 & 1 & 1 & 0 \\
+1 & -1 & 0 & 1 
+\end{bmatrix}
+$$
+intercambiando filas $1$ y $2$:
+$$
+\begin{bmatrix}
+1 & -1 & 0 & 1 \\ 
+0 & 1 & 1 & 0 
+\end{bmatrix}
+$$
+
+y sumando la fila $2$ a la fila $1$:
+
+$$
+\begin{bmatrix}
+1 & 0 & 1 & 1 \\
+0 & 1 & 1 & 0 
+\end{bmatrix}
+$$
+con lo que la inversa es:
+
+$$
+Q^{-1}=
+\begin{bmatrix}
+ 1 & 1 \\
+ 1 & 0 
+\end{bmatrix}
+$$
+
+Finalmente, para calcular la matriz $A'=Q^{-1}AP$ realizamos el producto de matrices:
+
+$$
+\begin{align}
+A' =& \begin{bmatrix}
+ 1 & 1 \\
+ 1 & 0 
+\end{bmatrix}\begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+\end{bmatrix}\begin{bmatrix}
+ 1 & 0 & 0\\
+ 0 &-1 & 1\\
+-1 & 1 & 1
+\end{bmatrix} \\
+ =& \begin{bmatrix}
+ 1 & 1 \\
+ 1 & 0 
+\end{bmatrix}\begin{bmatrix}
+0 & -1 & 1 \\
+-2 & 2 & 2 \\
+\end{bmatrix}\\
+=&\begin{bmatrix}
+-2 & 1 & 3 \\
+0 & -1 & 1 \\
+\end{bmatrix}
+\end{align}
+$$
+
+Para comprobar que la calculamos correctamente basta con verificar que las derivadas de los vectores de la base $\mathcal{B}_2$ coinciden con las columnas de la matriz $A'$ cuando las escribimos en la base $\mathcal{B}_1$:
+
+La derivada de $1 - t^2$ es $-2t=(-2,0)_{\mathcal{B}_1}$, la derivada de $(t^2 - t)$ es $2t-1=-(1-t)+t=(1,-1)_{\mathcal{B}_1}$  y por último la derivada de $t^2+t$ es $2t+1=(1-t)+3t=(3,1)_{\mathcal{B}_1}$, con lo que queda comprobado.
+:::
+
+::::{prf:example} Matriz de una rotación:
+Como ya comentamos en el ejemplo BLA, la matriz de una rotación antihoraria de ángulo $\theta$ cuando se usa la base canónica es: 
+
+$$
+A=\begin{bmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta 
+\end{bmatrix}
+$$ 
+
+
+Vamos a calcular la matriz $A'$ asociada a la aplicación lineal cuando decidimos usar como base $\mathcal{B}'=\{(1,-1),(1,1)\}$. 
+
+:::{figure} 
+:alt: Dos flechas a 45 grados.
+Dibujo de las flechas asociadas a la base $\mathcal{B}'$.
+:::
+
+Puesto que estamos utilizando las mismas bases tanto para $U$ como para $V$, realmente solo tenemos una matriz de cambio de base, $P$, y la relación entre $A'$ y $A$ será $A'=P^{-1}AP$, donde:
+
+$$
+P=\begin{bmatrix}
+1 & 1 \\
+-1 & 1
+\end{bmatrix}, \quad 
+P^{-1}=\begin{bmatrix}
+\frac{1}{2} & -\frac{1}{2} \\
+\frac{1}{2} &  \frac{1}{2} 
+\end{bmatrix}
+$$
+
+Por lo tanto podemos calcular $A'$ como:
+
+$$
+\begin{align}
+A'=& \begin{bmatrix}
+\frac{1}{2} & -\frac{1}{2} \\
+\frac{1}{2} &  \frac{1}{2} 
+\end{bmatrix} \begin{bmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta 
+\end{bmatrix}\begin{bmatrix}
+1 & 1 \\
+-1 & 1
+\end{bmatrix}\\
+=&\begin{bmatrix}
+\frac{1}{2} & -\frac{1}{2} \\
+\frac{1}{2} &  \frac{1}{2} 
+\end{bmatrix} \begin{bmatrix}
+\cos\theta +\sin\theta & \cos\theta - \sin\theta \\
+\sin\theta -\cos\theta & \sin\theta + \cos\theta 
+\end{bmatrix}\\
+=&\begin{bmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{bmatrix}
+\end{align}
+$$
+
+Es decir, en este caso se cumple que $A'=A$. ¿Por qué?, Pues porque una rotación de un ángulo $\theta$ sigue siendo una rotación de un ángulo $\theta$ la miremos desde el ángulo que la miremos.
+::::
