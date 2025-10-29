@@ -309,10 +309,11 @@ A=\begin{bmatrix}
 $$ 
 
 
-Vamos a calcular la matriz $A'$ asociada a la aplicación lineal cuando decidimos usar como base $\mathcal{B}'=\{(1,-1),(1,1)\}$. 
+Vamos a calcular la matriz $A'$ asociada a la aplicación lineal cuando decidimos usar como base $\mathcal{B}'=\{\mathbf{e}'_1,\mathbf{e}'_2\}$ con $\mathbf{e}'_1=(1,-1)_\mathcal{B}$ y $\mathbf{e}'_2=(1,1)_\mathcal{B}$. 
 
-:::{figure} 
+:::{figure} ./base45.jpg
 :alt: Dos flechas a 45 grados.
+:width: 80%
 Dibujo de las flechas asociadas a la base $\mathcal{B}'$.
 :::
 
