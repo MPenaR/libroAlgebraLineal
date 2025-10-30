@@ -20,3 +20,13 @@ Decimos que una función $f:A\to B$ es inyectiva cuando para cada par $x,y\in A$
 :enumerated: false
 Decimos que una función $f:A\to B$ es sobreyectiva si para todo $y\in B$ existe $x\in A$ tal que $f(x)=y$.
 :::
+
+:::{prf:definition} Matriz regular
+:label: matriz_regular
+Decimos que una matriz cuadrada es regular si $\det(A)\neq 0$
+:::
+
+:::{prf:definition} Matriz singular
+:label: matriz_singular
+Decimos que una matriz cuadrada es singular si $\det(A)= 0$
+:::
