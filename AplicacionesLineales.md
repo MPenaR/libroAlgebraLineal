@@ -195,8 +195,19 @@ De donde obtenemos que el polinomio derivada de $p$ tiene coordenadas $(4,10)$ e
 :::
 
 
-### Cambio de coordenadas de la matriz asociada a una aplicación lineal
+### Cambio de base de la matriz asociada a una aplicación lineal
 
+
+:::{prf:definition} Equivalencia de matrices
+:label: linealmente_equivalente
+Dadas dos matrices $A,B\in\mathscr{M}_{m\times n}(\mathbb{K})$, decimos que $A$ y $B$ son linealmente equivalentes si existen las [matrices regulares](#matriz_regular) $P\in\mathscr{M}_n(\mathbb{K})$ y $Q\in\mathscr{M}_m(\mathbb{K})$ tales que:
+
+$$
+B = Q^{-1}AP
+$$
+
+Dicho de otra manera, $A$ y $B$ son matrices asociadas a la misma aplicación lineal en bases diferentes.
+:::
 
 :::{prf:example}
 Como ya comentamos en el [](#ex_deriv), la matriz asociada la derivación de polinomios de segundo grado en las bases usuales es: 
