@@ -197,6 +197,8 @@ De donde obtenemos que el polinomio derivada de $p$ tiene coordenadas $(4,10)$ e
 
 ### Cambio de base de la matriz asociada a una aplicación lineal
 
+Supongamos que tenemos una aplicación $f:U\to V$, siendo $U$ y $V$ espacios vectoriales de dimensión $n$ y $m$ respectivamente. Una vez que definimos unas bases $\mathcal{B}_U$ y $\mathcal{B}_V$ podemos calcular la matriz $A\in\mathscr{M}_{m\times n}(\mathbb{K})$ asociada a dicha aplicación en esas bases. Recordamos que la matriz $A$ cumple que $Y=AX$ donde si $X$ denota a la matriz columna formada por las coordenadas de un vector $\mathbf{u}\in U$ en la base $\mathcal{B}_U$, entonces $Y$ denota a la matriz columna formada por las coordenadas del vector $f(\mathbf{u})$ en $\mathcal{B}_V$.
+
 
 :::{prf:definition} Equivalencia de matrices
 :label: linealmente_equivalente
@@ -370,3 +372,26 @@ $$
 
 Es decir, en este caso se cumple que $A'=A$. ¿Por qué?, Pues porque una rotación de un ángulo $\theta$ sigue siendo una rotación de un ángulo $\theta$ la miremos desde el ángulo que la miremos.
 ::::
+
+:::{prf:definition} Monomorfismo
+Decimos que una aplicación lineal $f:U\to V$ es un monomorfismo si es [inyectiva](#f_inyectiva) es decir, si para cualquier par de vectores $\mathbf{x},\mathbf{y}\in U$ se tiene que $\mathbf{x}\neq\mathbf{y}$ implica que $f(\mathbf{x})\neq f(\mathbf{y})$.
+:::
+
+::::{prf:property} 
+Una aplicación lineal $f$ es un monomorfismo si y solo si $\ker f = \{\mathbf{0}\}$, o lo que es lo mismo, una aplicación lineal es un monomorfismo si y solo si $\mathrm{dim}\left(\ker f\right) = 0$.
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+Vamos a demostrar primero que si $f$ es un monomorfismo, entonces el kernel tiene que ser únicamente el vector $\mathbf{0}$ mediante el recíproco. Supongamos que la consecuencia es falsa, es decir, que existe un vector $\mathbf{v}\neq \mathbf{0}$ que pertenece al kernel de $f$. En ese caso se tiene tenemos que $f(\mathbf{0})=\mathbf{0}=f(\mathbf{v})$, por lo que acabamos de encontrar dos vectores distintos $\mathbf{0}$ y $\mathbf{v}$ para los cuales la aplicación toma el mismo valor, por lo que no se trataría de un monomorfismo.
+
+Por otra parte si el kernel es únicamente el vector $\mathbf{0}$, la aplicación ha de ser un monoformismo, pues si no fuese un monomorfismo existirían al menos dos vectores distintos $\mathbf{x}$ e $\mathbf{y}$ tales que $f(\mathbf{x})=f(\mathbf{y})$, y en ese caso tendríamos que el vector $\mathbf{y}-\mathbf{x}$ cumpliría $f(\mathbf{x}-\mathbf{y})=f(\mathbf{x})-f(\mathbf{y})=\mathbf{0}$. Es decir, el vector $\mathbf{x}-\mathbf{y}$ sería un vector distinto de $\mathbf{0}$ y perteneciente al kernel de $f$, lo cual va en contra de que el kernel de $f$ sea únicamente el vector $\mathbf{0}$.
+:::
+::::
+
+:::{prf:definition} Epimorfismo
+Decimos que una aplicación lineal $f:U\to V$ es un epimorfismo si es [sobreyectiva](#f_sobreyectiva) es decir, si para cualquier vector $\mathbf{y}\in V$ existe al menos un vector $\mathbf{x}\in U$ tal que $f(\mathbf{x})=\mathbf{y}$. O dicho de otra manera, la [imagen](imagen) de $f$ es todo el espacio vectorial $V$. 
+:::
+
+:::{prf:definition} Isomorfismo
+Decimos que una aplicación lineal $f:U\to V$ es un isomorfismo si es [biyectiva](#f_biyectiva) es decir, si es tanto un monomorfismo como un epimorfismo.
+:::

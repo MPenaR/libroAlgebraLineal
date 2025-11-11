@@ -135,7 +135,7 @@ En estos apuntes, si alguna propiedad se cumple tanto en espacios vectoriales re
 ## Ejemplos
 :::{prf:example} El espacio vectorial $\mathbb{R}^2$
 :label: ej_R2
-Podemos definir un espacio vectorial real sobre el conjunto de pares de reales, $\mathbb{R}^2$, definiendo las operaciones suma y producto por un escalar como:
+Podemos definir un espacio vectorial real sobre el conjunto de [pares ordenados reales](#R_n), $\mathbb{R}^2$, definiendo las operaciones suma y producto por un escalar como:
 
 - suma: Dados los pares $\mathbf{u}=(a,b)$ y $\mathbf{v}=(c,d)$ entonces definimos la suma $\mathbf{u}+\mathbf{v}$ como el par $(a+c, b+d)$.
 - producto por un escalar: Dado el par $\mathbf{u}=(a,b)$ y el real $\lambda$ entonces definimos el producto $\lambda\mathbf{u}$ como el par $(\lambda a, \lambda b)$.
