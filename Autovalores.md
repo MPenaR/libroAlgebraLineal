@@ -91,3 +91,25 @@ q(\lambda) &= \det(B-\lambda I) \\
 \end{align}
 :::
 ::::
+
+La propiedad anterior también se puede enunciar como *El polinomio característico es un invariante con respecto a la semejanza de matrices*, pues dos matrices son semejantes si están asociadas al mismo endomorfismo en dos bases y, por lo tanto, el polinomio característico calculado en cualquiera de ellas es el mismo.
+
+
+
+:::{prf:definition} Espectro de un endomorfismo
+Dado un endomorfismo $f:U\to U$, llamamos espectro del endomorfismo al conjunto de autovalores de dicho endomorfismo.
+
+Lo podemos calcular como:
+$$
+\mathrm{Sp}(f) = \{\lambda \in \mathbb{K}\,|\,p(\lambda)=0\}
+$$
+donde $p(\lambda)$ es el polinomio característico del endomorfismo.
+:::
+
+::::{prf:property}
+El espectro de un endomorfismo no depende de la base usada para calcularlo. 
+
+:::{prf:proof}
+Puesto que el espectro solo depende del polinomio característico y este no depende de la base utilizada tampoco el espectro.
+:::
+::::
