@@ -37,7 +37,7 @@ project:
       children: 
         - file: FormasCuadraticas.md
     # - file: Operaciones_elementales.md
-    - title: Apéndice 1: El cuerpo de los números complejos
+    - title: El cuerpo de los números complejos
       children: 
         - file: NumerosComplejos.md
     - title: Complementos
