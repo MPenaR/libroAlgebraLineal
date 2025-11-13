@@ -335,7 +335,7 @@ Primero tenemos que comprobar que $(\mathbb{R}^2,+)$ forman un grupo abeliano, e
                         &= \mathbf{x} + (\mathbf{y}+\mathbf{z})
 \end{align}
 
-- **existencia de elemento neutro:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $\mathbf{0}=(0,0)$ es el elemento neutro de la suma pues:
+- **existencia de elemento neutro:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $\mathbf{0}:=(0,0)$ es el elemento neutro de la suma pues:
 
 \begin{align}
 \mathbf{x}+\mathbf{0} &= (x_1,x_2) + (0,0)\\
@@ -343,6 +343,16 @@ Primero tenemos que comprobar que $(\mathbb{R}^2,+)$ forman un grupo abeliano, e
                       &= (x_1,x_2)\\
                       6= \mathbf{x}
 \end{align}
+
+- **existencia de elemento opuesto:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $-\mathbf{x}:=(-x_1,-x_2)$ es el elemento opuesto pues:
+
+\begin{align}
+\mathbf{x}+(-\mathbf{x}) &= (x_1,x_2) + (-x_1,-x_2)\\
+                      &= (x_1-x_1,x_2-x_2) \\
+                      &= (0,0)\\
+                      6= \mathbf{0}
+\end{align}
+
 
 :::
 :::{solution} ex_r2_raro
