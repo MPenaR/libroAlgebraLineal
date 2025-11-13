@@ -311,17 +311,17 @@ Para demostrar que la unión no es un espacio vectorial bastaría con tomar, por
 
 ## Soluciones
 :::{solution} ex_r2
-A pesar de que la suma así definida sigue siendo conmutativa, ya no es asociativa, por ejemplo:
+Primero tenemos que comprobar que $(\mathbb{R}^2,+)$ forman un grupo abeliano, es decir: 
 
-$$
-(x_1,y_1)+((x_2,y_2)+(x_3,y_3)) = (x_1,y_1) + (y_2+y_3,x_2+x_3) = (y_1 + x_2 + x_3, x_1 + y_2 + y_3)
-$$
+- **Conmutatividad:** Sean $\mathbf{x}=(x_1,x_2)$ y $\mathbf{y}=(y_1,y_2)$ dos elementos cualesquiera de $\mathbb{R}^2$ entonces:
 
-mientras que 
-
-$$
-((x_1,y_1)+(x_2,y_2))+(x_3,y_3) = (y_1+y_2,x_1+x_2)+(x_3,y_3) = (x_1+x_2+y_3, y_1+y_2+x_3)
-$$
+\begin{align}
+\mathbf{x} + \mathbf{y} &= (x_1,x_2) + (y_1,y_2) \\
+                        &= (x_1+y_1, x_2+y_2) \\
+                        &= (y_1+x_1, y_2+x_2) \\
+                        &= (y_1,y_2) + (x_1+x_2)\\
+                        &= \mathbf{y}+\mathbf{y}
+\end{align}
 
 :::
 :::{solution} ex_r2_raro
