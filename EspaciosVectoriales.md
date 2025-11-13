@@ -311,6 +311,18 @@ Para demostrar que la unión no es un espacio vectorial bastaría con tomar, por
 
 ## Soluciones
 :::{solution} ex_r2
+A pesar de que la suma así definida sigue siendo conmutativa, ya no es asociativa, por ejemplo:
+
+$$
+(x_1,y_1)+((x_2,y_2)+(x_3,y_3)) = (x_1,y_1) + (y_2+y_3,x_2+x_3) = (y_1 + x_2 + x_3, x_1 + y_2 + y_3)
+$$
+
+mientras que 
+
+$$
+((x_1,y_1)+(x_2,y_2))+(x_3,y_3) = (y_1+y_2,x_1+x_2)+(x_3,y_3) = (x_1+x_2+y_3, y_1+y_2+x_3)
+$$
+
 :::
 :::{solution} ex_r2_raro
 Vamos a comprobar si dicha suma es una operación asociativa. Por una parte:
