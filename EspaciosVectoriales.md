@@ -320,8 +320,39 @@ Primero tenemos que comprobar que $(\mathbb{R}^2,+)$ forman un grupo abeliano, e
                         &= (x_1+y_1, x_2+y_2) \\
                         &= (y_1+x_1, y_2+x_2) \\
                         &= (y_1,y_2) + (x_1+x_2)\\
-                        &= \mathbf{y}+\mathbf{y}
+                        &= \mathbf{y}+\mathbf{x}
 \end{align}
+
+- **asociatividad:** Sean $\mathbf{x}=(x_1,x_2)$, $\mathbf{y}=(y_1,y_2)$ y $\mathbf{z}=(z_1,z_2)$ tres elementos cualesquiera de $\mathbb{R}^2$ entonces:
+
+\begin{align}
+(\mathbf{x} + \mathbf{y})+\mathbf{z} &= \left((x_1,x_2) + (y_1,y_2)\right) + (z_1,z_2) \\
+                        &= (x_1+y_1, x_2+y_2) + (z_1,z_2) \\
+                        &= ((x_1+y_1)+z_1, (x_2+y_2)+z_2) \\
+                        &= (x_1+(y_1+z_1), x_2+ (y_2+z_2))\\
+                        &= (x_1,x_2) +(y_1+z_1,y_2+z_2)\\
+                        &= (x_1,x_2) + \left((y_1,y_2) + (z_1,z_2)\right)
+                        &= \mathbf{x} + (\mathbf{y}+\mathbf{z})
+\end{align}
+
+- **existencia de elemento neutro:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $\mathbf{0}:=(0,0)$ es el elemento neutro de la suma pues:
+
+\begin{align}
+\mathbf{x}+\mathbf{0} &= (x_1,x_2) + (0,0)\\
+                      &= (x_1+0,x_2+0) \\
+                      &= (x_1,x_2)\\
+                      6= \mathbf{x}
+\end{align}
+
+- **existencia de elemento opuesto:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $-\mathbf{x}:=(-x_1,-x_2)$ es el elemento opuesto pues:
+
+\begin{align}
+\mathbf{x}+(-\mathbf{x}) &= (x_1,x_2) + (-x_1,-x_2)\\
+                      &= (x_1-x_1,x_2-x_2) \\
+                      &= (0,0)\\
+                      6= \mathbf{0}
+\end{align}
+
 
 :::
 :::{solution} ex_r2_raro
