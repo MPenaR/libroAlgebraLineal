@@ -365,6 +365,29 @@ A continuación probamos las propiedades del producto por un escalar:
                         &= (\lambda \mu)\mathbf{x}
 \end{align}
 
+- **Distributividad sobre la suma de $\mathbb{R}^2$:** Sea $\lambda\in\mathbb{R}$ un escalar cualquiera y sean $\mathbf{x}=(x_1,x_2)$ e $\mathbf{y}=(y_1,y_2)$ dos elementos de $\mathbb{R}^2$ cualesquiera, entonces:
+
+\begin{align}
+\lambda(\mathbf{x}+\mathbf{y}) &= \lambda\left((x_1,x_2) + (y_1,y_2)\right) \\
+                               &= \lambda ( x_1+y_1,x_2+y_2)\\
+                               &= (\lambda(x_1+y_1), \lambda(x_2+y_2))\\
+                               &= (\lambda x_1 + \lambda y_1, \lambda x_2 + \lambda y_2)\\
+                               &= (\lambda x_1,\lambda x_2) + (\lambda y_1, \lambda y_2)\\
+                               &= \lambda(x_1,x_2) + \lambda(y_1,y_2)\\
+                               &= \lambda\mathbf{x} + \lambda\mathbf{y}
+\end{align}
+
+- **distributividad sobre la suma en $\mathbb{R}$:** Sean $\lambda\in\mathbb{R}$ y $\mu\in\mathbb{R}$ dos escalares cualesquiera y $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces:
+
+\begin{align}
+(\lambda + \mu)\mathbf{x} &= (\lambda + \mu)(x_1,x_2) \\
+                          &= ((\lambda+\mu)x_1, (\lambda+\mu)x_2)\\
+                          &= (\lambda x_1 + \mu x_1, \lambda x_2 + \mu x_2)\\
+                          &= (\lambda x_1,\lambda x_2) + (\mu x_1, \mu x_2)\\
+                          &= \lambda(x_1,x_2) + \mu(x_1,x_2)\\
+                          &= \lambda \mathbf{x} +\mu\mathbf{x}
+\end{align}
+
 :::
 :::{solution} ex_r2_raro
 Vamos a comprobar si dicha suma es una operación asociativa. Sean $\mathbf{x}=(x_1,x_2)$, $\mathbf{y}=(y_1, y_2)$ y $\mathbf{z}=(Z_1,z_2)$ tres elementos cualquiera de $\mathbb{R}^2$, entonces:
