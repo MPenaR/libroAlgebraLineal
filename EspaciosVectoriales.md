@@ -365,6 +365,15 @@ A continuación probamos las propiedades del producto por un escalar:
                         &= (\lambda \mu)\mathbf{x}
 \end{align}
 
+- **existencia de elemento neutro: ** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$ se tiene que $1\in\mathbb{R}$ cumple:
+
+\begin{align}
+1\mathbf{x}&=1(x_1,x_2)\\
+           &=(1x_1,1x_2)\\
+           &= (x_1,x_2)\\
+           &= \mathbf{x}
+\end{align}
+
 - **Distributividad sobre la suma de $\mathbb{R}^2$:** Sea $\lambda\in\mathbb{R}$ un escalar cualquiera y sean $\mathbf{x}=(x_1,x_2)$ e $\mathbf{y}=(y_1,y_2)$ dos elementos de $\mathbb{R}^2$ cualesquiera, entonces:
 
 \begin{align}
@@ -387,6 +396,8 @@ A continuación probamos las propiedades del producto por un escalar:
                           &= \lambda(x_1,x_2) + \mu(x_1,x_2)\\
                           &= \lambda \mathbf{x} +\mu\mathbf{x}
 \end{align}
+
+Por lo tanto se cumplen todas las propiedades de un espacio vectorial.
 
 :::
 :::{solution} ex_r2_raro
