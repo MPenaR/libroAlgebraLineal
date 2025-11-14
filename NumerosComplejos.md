@@ -155,7 +155,7 @@ de manera que estamos expresando que son conceptos diferentes. Sin embargo, cuan
 ::: 
 
 
-Del mismo modo que el elemento $(1,0)$ es el elemento neutro, el elemento $(0,1)$ también tiene un tratamiento especial. Se le conoce como unidad imaginaria, lo denotamos por $i$ y cumple que $i^2=-1$, pues:
+Del mismo modo que el elemento $(1,0)$ es el elemento neutro, el elemento $(0,1)$ también tiene un comportamiento especial. Se le conoce como unidad imaginaria, lo denotamos por $i$ y cumple que:
 
 
 $$
@@ -164,14 +164,16 @@ $$
 
 :::{attention}
 :class: dropdown
-Esto no significa que hayamos encontrado un número que elevado al cuadrado nos devuelva el número real negativo $-1$. Esto únicamente significa que acabmos de describir una estructura algebraica en $\mathbb{R}^2$ en la cual la multiplicación que definimos nos permite encontrar un elemento que multiplicado por si mismo nos devuelve el elemento neutro de dicha multiplicación cambiado de signo: 
+Si llamamos $1=(1,0)$ al elemento neutro de la multiplicación, se puede resumir el la propiedad anterior como $i^2=-1$. Esto no significa que hayamos encontrado la raíz cuadrada de un número negativo. No acabamos de encontrar un número que elevado al cuadrado nos devuelva el número real negativo $-1$. Esto únicamente significa que acabamos de describir una estructura algebraica en $\mathbb{R}^2$ en la cual la multiplicación que definimos nos permite encontrar un elemento que multiplicado por si mismo nos devuelve el opuesto del elemento neutro de dicha multiplicación: 
 
 $$
 (0,1)(0,1) = -(1,0)
 $$
 
-Podemos dormir tranquilos, la raiz cuadrada sigue sin estar definida en números reales negativos.
+Podemos dormir tranquilos, la raiz cuadrada sigue sin estar definida para números reales negativos.
 :::
+
+¿Existen entonces las raíces cuadradas de números complejos negativos? Esta pregunta no está bien planteada pues no existen los números complejos negativos. No existe el concepto de "mayor que" o "menor que" en números complejos. ¿$i=(0,1)$ es mayor o menor que $0=(0,0)$?
 
 
 ## Inverso de un número complejo
