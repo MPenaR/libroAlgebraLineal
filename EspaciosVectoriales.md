@@ -323,7 +323,7 @@ Primero tenemos que comprobar que $(\mathbb{R}^2,+)$ forman un grupo abeliano, e
                         &= \mathbf{y}+\mathbf{x}
 \end{align}
 
-- **asociatividad:** Sean $\mathbf{x}=(x_1,x_2)$, $\mathbf{y}=(y_1,y_2)$ y $\mathbf{z}=(z_1,z_2)$ tres elementos cualesquiera de $\mathbb{R}^2$ entonces:
+- **Asociatividad:** Sean $\mathbf{x}=(x_1,x_2)$, $\mathbf{y}=(y_1,y_2)$ y $\mathbf{z}=(z_1,z_2)$ tres elementos cualesquiera de $\mathbb{R}^2$ entonces:
 
 \begin{align}
 (\mathbf{x} + \mathbf{y})+\mathbf{z} &= \left((x_1,x_2) + (y_1,y_2)\right) + (z_1,z_2) \\
@@ -331,48 +331,57 @@ Primero tenemos que comprobar que $(\mathbb{R}^2,+)$ forman un grupo abeliano, e
                         &= ((x_1+y_1)+z_1, (x_2+y_2)+z_2) \\
                         &= (x_1+(y_1+z_1), x_2+ (y_2+z_2))\\
                         &= (x_1,x_2) +(y_1+z_1,y_2+z_2)\\
-                        &= (x_1,x_2) + \left((y_1,y_2) + (z_1,z_2)\right)
+                        &= (x_1,x_2) + \left((y_1,y_2) + (z_1,z_2)\right)\\
                         &= \mathbf{x} + (\mathbf{y}+\mathbf{z})
 \end{align}
 
-- **existencia de elemento neutro:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $\mathbf{0}:=(0,0)$ es el elemento neutro de la suma pues:
+- **Existencia de elemento neutro:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $\mathbf{0}:=(0,0)$ es el elemento neutro de la suma pues:
 
 \begin{align}
 \mathbf{x}+\mathbf{0} &= (x_1,x_2) + (0,0)\\
                       &= (x_1+0,x_2+0) \\
                       &= (x_1,x_2)\\
-                      6= \mathbf{x}
+                      &= \mathbf{x}
 \end{align}
 
-- **existencia de elemento opuesto:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $-\mathbf{x}:=(-x_1,-x_2)$ es el elemento opuesto pues:
+- **Existencia de elemento opuesto:** Sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, entonces el elemento $-\mathbf{x}:=(-x_1,-x_2)$ es el elemento opuesto pues:
 
 \begin{align}
 \mathbf{x}+(-\mathbf{x}) &= (x_1,x_2) + (-x_1,-x_2)\\
                       &= (x_1-x_1,x_2-x_2) \\
                       &= (0,0)\\
-                      6= \mathbf{0}
+                      &= \mathbf{0}
 \end{align}
 
+A continuación probamos las propiedades del producto por un escalar:
+
+- **Asociatividad mixta:** Sean $\lambda,\mu \in \mathbb{R}$ escalares y sea $\mathbf{x}=(x_1,x_2)$ un elemento cualquiera de $\mathbb{R}^2$, se tiene que:
+
+\begin{align}
+\lambda(\mu \mathbf{x}) &= \lambda(\mu(x_1,x_2)) \\
+                        &= \lambda(\mu x_1, \mu x_2)\\
+                        &= (\lambda \mu x_1, \lambda \mu x_2)\\
+                        &= (\lambda\mu)( x_1, x_2)\\
+                        &= (\lambda \mu)\mathbf{x}
+\end{align}
 
 :::
 :::{solution} ex_r2_raro
-Vamos a comprobar si dicha suma es una operación asociativa. Por una parte:
+Vamos a comprobar si dicha suma es una operación asociativa. Sean $\mathbf{x}=(x_1,x_2)$, $\mathbf{y}=(y_1, y_2)$ y $\mathbf{z}=(Z_1,z_2)$ tres elementos cualquiera de $\mathbb{R}^2$, entonces:
 
-$$
-\begin{align*}
-(x_1,y_1)+\left((x_2,y_2)+(x_3,y_3)\right) =&\\
- (x_1,y_1)+(y_2+y_3,x_2+x_3) &= (y_1 + x_2 + x_3, x_1 + y_2 + y_3)
-\end{align*}
-$$
+\begin{align}
+\mathbf{x}+(\mathbf{y}+\mathbf{z}) &= (x_1,x_2)+\left((y_1,y_2)+(z_1,z_2)\right)\\
+                                   &= (x_1,x_2)+(y_2+z_2,y_1+z_1)\\
+                                   &= (x_2 + y_1 + z_1, x_1 + y_2 + z_2)
+\end{align}
 
 mientras que 
 
-$$
-\begin{align*}
-\left((x_1,y_1)+(x_2+y_2)\right)+(x_3,y_3) = &\\
- (y_1+y_2, x_1 + x_2) + (x_3,y_3) &= (x_1 + x_2 + y_3, y_1 + y_2 + x_3)
-\end{align*}
-$$
+\begin{align}
+(\mathbf{x}+\mathbf{y})+\mathbf{z} &= \left((x_1,x_2)+(y_1,y_2)\right)+(z_1,z_2)\\ 
+                                   &=  (x_2 + y_2, x_1 + y_1) + (z_1,z_2)\\
+                                   &=  (x_1 + y_1 + z_2, x_2 + y_2 + z_1)
+\end{align}
 
 que son, en general, diferentes, por lo cual no es una operación asociativa.
 :::
