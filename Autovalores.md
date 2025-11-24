@@ -3,7 +3,7 @@
 :::{prf:definition} Endomorfismo lineal
 :label: endomorfismo
 
-Llamamos endomorfismo lineal a una aplicación lineal $f:U\to U$, es decir, una aplicación lineal entre cuyo dominio y codominio son el mismo espacio vectorial.
+Llamamos endomorfismo lineal a una aplicación lineal $f:U\to U$, es decir, una aplicación lineal  cuyo dominio y codominio son el mismo espacio vectorial.
 :::
 
 
@@ -111,5 +111,48 @@ El espectro de un endomorfismo no depende de la base usada para calcularlo.
 
 :::{prf:proof}
 Puesto que el espectro solo depende del polinomio característico y este no depende de la base utilizada tampoco el espectro.
+:::
+::::
+
+:::{prf:property} Matriz diagonalizable por semejanza
+Dada una matriz $A\in\mathscr{M}_{n\times n}(\mathbb{K})$ decimos que es diagonalizable por semejanza si existen una matriz regular $P\in\mathscr{M}_{n\times n}(\mathbb{K})$ y una matriz diagonal $D\in\mathscr{M}_{n\times n}(\mathbb{K})$, tales que:
+
+$$D=P^{-1}AP$$
+
+o lo que es lo mismo
+
+$$
+A = PAP^{-1}
+$$
+:::
+
+
+::::{prf:property}
+Dado un endomorfismo $f:U\to U$ el conjunto de autovectores asociados a un posible autovalor $\lambda$, junto con el vector $\mathbf{0}$, forman un subespacio vectorial de $U$. 
+:::{prf:proof} 
+:enumerated: false
+:class: dropdown
+
+La forma mas directa de demostrarlo es tener en cuenta el conjunto de autovectores asociados a $\lambda$ junto con el $\mathbf{0}$ son justamente el núcleo del endomorfismo $f-\lambbda \mathrm{Id}$, el cual sabemos que es un subespacio vectorial de $U$.
+
+Otra opción es comprobar las propiedades de subespacio vectorial directamente: 
+
+Si $\mathbf{u}$ y $\mathbf{v}$ son autovectores asociados al mismo autovalor $\lambda$ entonces:
+
+\begin{align}
+f(\mathbf{u}+\mathbf{v})&=f(\mathbf{u})+f(\mathbf{v})\\
+                        &=\lambda \mathbf{u}+\lambda\mathbf{v}\\
+                        &= \lambda(\mathbf{u}+\mathbf{v})
+\end{align}
+
+Por otra parte, si $k\in\mathbb{K}$ es un escalar cualquiera, entonces:
+
+\begin{align}
+f(k\mathbf{u})&=kf(\mathbf{u})\\
+              &=k\lambda \mathbf{u}\\
+              &= \lambda(k\mathbf{u})
+\end{align}
+
+
 :::
 ::::
