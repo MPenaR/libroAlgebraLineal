@@ -133,7 +133,7 @@ Dado un endomorfismo $f:U\to U$ el conjunto de autovectores asociados a un posib
 :enumerated: false
 :class: dropdown
 
-La forma mas directa de demostrarlo es tener en cuenta el conjunto de autovectores asociados a $\lambda$ junto con el $\mathbf{0}$ son justamente el núcleo del endomorfismo $f-\lambbda \mathrm{Id}$, el cual sabemos que es un subespacio vectorial de $U$.
+La forma mas directa de demostrarlo es tener en cuenta el conjunto de autovectores asociados a $\lambda$ junto con el $\mathbf{0}$ son justamente el núcleo del endomorfismo $f-\lambda \mathrm{Id}$, el cual sabemos que es un subespacio vectorial de $U$.
 
 Otra opción es comprobar las propiedades de subespacio vectorial directamente: 
 
@@ -152,7 +152,38 @@ f(k\mathbf{u})&=kf(\mathbf{u})\\
               &=k\lambda \mathbf{u}\\
               &= \lambda(k\mathbf{u})
 \end{align}
-
-
 :::
 ::::
+
+## Teorema de Caley-Hamilton
+
+
+Sea $A\in\mathscr{M}_n(\mathbb{K})$ una una matriz diagonalizable por semejanza, es decir $A=PDP^{-1}$ con 
+
+$$
+D=\begin{pmatrix}
+\lambda_1 & 0         & \dots & 0 \\
+ 0        & \lambda_2 & \ddots & \vdots \\
+\vdots    &   \ddots   & \ddots & 0\\
+ 0        &  \dots    &     0 & \lambda_n \\
+\end{pmatrix}
+$$
+
+Entonces se muy sencillo calcular la potencia (enésima) de la matriz $A$: 
+
+\begin{align}
+A^n &= \underset{n\text{ veces}}{\underbrace{(PDP^{-1})(PDP^{-1})\dots (PDP^{-1})}}\\
+    &= P D^n P^{-1}
+\end{align}
+
+
+:::{prf:example} Serie de Neumann
+Dada una matriz $A$ invertible, si la serie:
+$$
+\sum_{k=0}^\infty A^k
+$$
+converge, entonces se tiene que 
+$$
+\sum_{k=0}^\infty A^k = \left(I - A\right)^{-1}
+$$
+:::
