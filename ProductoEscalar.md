@@ -96,6 +96,46 @@ $$
 
 :::
 
+:::{prf:definition} Homomorfismo adjunto
+Dado un homomorfismo $f:U\to V$ donde $U$ y $V$ son espacios vectoriales euclídeos, llamamos homomorfismo adjunto $f^*:V\to U$ al homomorfismo que cumple que:
+$$
+\mathbf{y}\cdot f(\mathbf{x}) = f^*(\mathbf{y})\cdot \mathbf{x}
+$$ 
+:::
+
+::::{prf:property}
+Si $f$ es un homomorfismo entre espacios vectoriales reales con matriz asociada $A$ en las bases $\mathcal{B}_U$ y $\mathcal{B}_V$, entonces la matriz asociada a $f^*$ es $A^\intercal$. 
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+$$
+f^*(\mathbf{y})\cdot\mathbf{x}= \mathbf{y}\cdot f(\mathbf{x}) = Y^\intercal A X = (A^\intercal Y)^\intercal X 
+$$
+por lo que $f^*(\mathbf{y})=A^\intercal Y$.
+:::
+::::
+
+
+::::{prf:theorem} Fredholm
+Dado un homomorfismo $f:U\to V$, se tiene que:
+$$
+\mathrm{Im}f^* = \ker f^\perp
+$$
+o lo que es lo mismo
+$$
+\mathrm{Im}(A^\intercal) = \ker (A)^\perp
+$$
+:::{prf:proof}
+:enumerated: False
+:class: dropdown
+Si $\mathbf{x}$ pertenece a $\ker f$ entonces 
+$$
+f^*(\mathbf{y})\cdot\mathbf{x}=\mathbf{y}\cdot f(\mathbf{x}) = \mathbf{y}\cdot \mathbf{0} = 0,\quad \forall \mathbf{y}\in V
+$$
+por lo que $\mathbf{x} \perp \left\{f^*(\mathbf{y})|\mathbf{y}\in V\right\}=\mathrm{Im}f^*$
+:::
+::::
+
 
 ## Proyección ortogonal
 
@@ -106,6 +146,24 @@ d: & E\times E & \to & \mathbb{R}\\
    & (\mathbf{x},\mathbf{y}) & \mapsto & \Vert\mathbf{y}-\mathbf{x}\Vert
 \end{align}
 :::
+
+$$
+\mathbf{proy}_{\mathbf{v}}(\mathbf{u})=\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{v}\cdot\mathbf{v}}\mathbf{v}
+$$
+
+$$
+\mathbf{proy}_{\mathbf{v}}(\mathbf{\mathbf{x}})=PX
+$$
+con 
+$$
+P=\begin{pmatrix}
+v_1^2 & v_1v_2 & \dots & v_1v_n \\
+v_1v_2 & v_2^2 &  \ddots & v_2v_n \\
+\vdots & \ddots & \ddots  & \vdots \\
+v_1v_n & v_2v_n & \dots & v_n^2 
+\end{pmatrix}
+$$
+
 
 
 ## Ortogonalización de Gram-Schmidt
@@ -122,6 +180,9 @@ Para empezar, si queremos que $\mathcal{L}(\{\mathbf{v}_1\}) = \mathcal{L}(\{\ma
 - $\mathbf{v}_1 = \mathbf{u}_1$
 - $\mathbf{v}_i = \mathbf{u}_i - \sum_{k=1}^{i-1}\mathrm{proy}_{\mathbf{v}_k}(\mathbf{u}_i)$ para $i=2,3,\dots,n$
 
+
+
+### Implementaciones en un ordenador
 ::::{tab-set}
 :::{tab-item} Fortran
 :sync: tab_Fortran
@@ -193,6 +254,46 @@ def Gramm_Schmidt(B: list[real_array]) -> list[real_array]:
     return B_ort
 ```
 :::
+
+:::{tab-item} Python+Scipy
+:sync: tab_Scipy
+```{code}python
+:linenos:
+:emphasize-lines: 8
+from scipy.linalg import orth
+import numpy as np
+
+B = np.array([[ 1, 1, 0],
+              [-1, 1, 1],
+              [ 1, 0, 1]])
+
+B_orth = orth(B)
+
+print(B_orth)
+```
+:::
+
+
+:::{tab-item} Python+Sympy
+:sync: tab_Sympy
+```{code}python
+:linenos:
+:emphasize-lines: 7
+from sympy.matrices import Matrix, GramSchmidt
+
+u1 = Matrix([1,-1, 1])
+u2 = Matrix([1, 1, 0])
+u3 = Matrix([0, 1, 1])
+
+B = GramSchmidt([u1, u2, u3])
+
+for v in B:
+    print(v)
+
+```
+:::
+
+
 ::::
 
 
@@ -277,3 +378,21 @@ Supongamos ahora que $X\in V_\lambda$ e $Y\in V_\mu$ con $\lambda \neq \mu$. Ent
 ::::
 
 ## Transformaciones ortogonales
+
+Llamamos transformación a un endomorfismo biyectivo, es decir, a un automorfismo.
+
+Diremos que una transformación es ortogonal si consserva el producto escalar, es decir, para todo $\mathbf{x},\mathbf{y}\in V$ se tiene que cumplir que $f(\mathbf{x})\cdot f(\mathbf{y}) = \mathbf{x}\cdot \mathbf{y}$. 
+
+O con matrices
+$$
+X^\intercal A^\intercal A Y = X^\intercal Y,\quad \forall X, Y \in \mathbb{R}^n
+$$
+
+$$
+X^\intercal \left(A^\intercal A  - I\right)Y = 0,\quad \forall X, Y \in \mathbb{R}^n
+$$
+
+$$
+A^\intercal A= I
+$$
+es decir, la matriz $A$ es ortogonal.

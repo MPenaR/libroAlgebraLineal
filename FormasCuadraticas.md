@@ -55,3 +55,28 @@ A' = P^\intercal A P = P^{-1}AP = D
 $$
 será la matriz asociada a la forma $\omega$ en la base $\mathcal{B}$.
 ::::
+
+
+::::{prf:theorem} Ley de inercia de Sylvester
+Sean $A$ y $B$ dos matrices simétricas de tamaño $n$ y sea $P$ una matriz regular de tamaño $n$ tal que $B=P^\intercal A P$. Entonces $A$ y $B$ poseen el mismo número de autovalores positivos y el mismo número de autovalores negativos.
+::::
+
+
+::::{prf:property}
+Si $P$ es una matriz cuadrada, entonces $A=P^\intercal P$ es una matriz simétrica semidefinida positiva. Si además $P$ es regular, entonces $A$ es definida positiva. 
+
+:::{prf:proof}
+:enumerated: False
+:class: dropdown
+
+A es simétrica pues $A^\intercal=(P^\intercal P)^\intercal=P^\intercal {P^\intercal}^\intercal=P^\intercal P = A$ y es definida positiva pues 
+$$
+X^\intercal A X = X^\intercal P^\intercal P X = (PX)^\intercal PX = (P\mathbf{x})\cdot(P\mathbf{x}) = \|P\mathbf{x}\|^2\ge0
+$$
+Si además $P$ es regular, entonces $\ker P = \{\mathbf{0}\}$ y por lo tanto 
+$$
+X^\intercal A X = 0 \Rightarrow \|P\mathbf{x}\|=0 \Rightarrow P\mathbf{x}=\mathbf{0} \Rightarrow \mathbf{x}=\mathbf{0}
+$$
+por lo que $A$ es definida positiva.
+:::
+::::
