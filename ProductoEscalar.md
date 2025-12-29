@@ -96,6 +96,46 @@ $$
 
 :::
 
+:::{prf:definition} Homomorfismo adjunto
+Dado un homomorfismo $f:U\to V$ donde $U$ y $V$ son espacios vectoriales euclídeos, llamamos homomorfismo adjunto $f^*:V\to U$ al homomorfismo que cumple que:
+$$
+\mathbf{y}\cdot f(\mathbf{x}) = f^*(\mathbf{y})\cdot \mathbf{x}
+$$ 
+:::
+
+::::{prf:property}
+Si $f$ es un homomorfismo entre espacios vectoriales reales con matriz asociada $A$ en las bases $\mathcal{B}_U$ y $\mathcal{B}_V$, entonces la matriz asociada a $f^*$ es $A^\intercal$. 
+:::{prf:proof}
+:enumerated: false
+:class: dropdown
+$$
+f^*(\mathbf{y})\cdot\mathbf{x}= \mathbf{y}\cdot f(\mathbf{x}) = Y^\intercal A X = (A^\intercal Y)^\intercal X 
+$$
+por lo que $f^*(\mathbf{y})=A^\intercal Y$.
+:::
+::::
+
+
+::::{prf:theorem} Fredholm
+Dado un homomorfismo $f:U\to V$, se tiene que:
+$$
+\mathrm{Im}f^* = \ker f^\perp
+$$
+o lo que es lo mismo
+$$
+\mathrm{Im}(A^\intercal) = \ker (A)^\perp
+$$
+:::{prf:proof}
+:enumerated: False
+:class: dropdown
+Si $\mathbf{x}$ pertenece a $\ker f$ entonces 
+$$
+f^*(\mathbf{y})\cdot\mathbf{x}=\mathbf{y}\cdot f(\mathbf{x}) = \mathbf{y}\cdot \mathbf{0} = 0,\quad \forall \mathbf{y}\in V
+$$
+por lo que $\mathbf{x} \perp \left\{f^*(\mathbf{y})|\mathbf{y}\in V\right\}=\mathrm{Im}f^*$
+:::
+::::
+
 
 ## Proyección ortogonal
 
@@ -106,6 +146,24 @@ d: & E\times E & \to & \mathbb{R}\\
    & (\mathbf{x},\mathbf{y}) & \mapsto & \Vert\mathbf{y}-\mathbf{x}\Vert
 \end{align}
 :::
+
+$$
+\mathbf{proy}_{\mathbf{v}}(\mathbf{u})=\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{v}\cdot\mathbf{v}}\mathbf{v}
+$$
+
+$$
+\mathbf{proy}_{\mathbf{v}}(\mathbf{\mathbf{x}})=PX
+$$
+con 
+$$
+P=\frac{1}{\|\mathbf{v}\|^2}\begin{pmatrix}
+v_1^2 & v_1v_2 & \dots & v_1v_n \\
+v_1v_2 & v_2^2 &  \ddots & v_2v_n \\
+\vdots & \ddots & \ddots  & \vdots \\
+v_1v_n & v_2v_n & \dots & v_n^2 
+\end{pmatrix}
+$$
+
 
 
 ## Ortogonalización de Gram-Schmidt
@@ -122,7 +180,58 @@ Para empezar, si queremos que $\mathcal{L}(\{\mathbf{v}_1\}) = \mathcal{L}(\{\ma
 - $\mathbf{v}_1 = \mathbf{u}_1$
 - $\mathbf{v}_i = \mathbf{u}_i - \sum_{k=1}^{i-1}\mathrm{proy}_{\mathbf{v}_k}(\mathbf{u}_i)$ para $i=2,3,\dots,n$
 
+
+
+### Implementaciones en un ordenador
 ::::{tab-set}
+:::{tab-item} Fortran
+:sync: tab_Fortran
+```{code}fortran
+:linenos:
+:emphasize-lines: 18-32
+
+program GrammSchmidt_test
+
+    real :: B(3,3)
+
+    B(:,1) = [1,-1,1]
+    B(:,2) = [1,1,0]
+    B(:,3) = [0,1,1]
+
+    call GrammSchmidt(B)
+
+    do i = 1, 3
+        print'(3F5.1)', B(:,i)
+        print*, ''
+    end do
+
+contains
+
+    subroutine GrammSchmidt(B)
+        real, intent(inout) :: B(:,:)
+
+        integer :: n, i, j
+        real :: dv(size(B,2))
+
+        do i = 1, size(B,1)
+            dv = 0
+            do j = 1, i-1
+                dv  = dv + proy(B(:,i),B(:,j))
+            end do
+
+            B(:,i) = B(:,i) - dv
+        end do 
+    end subroutine
+
+    function proy(u,v) result(w)
+        real, intent(in) :: u(:), v(:)
+        real :: w(size(u))
+        
+        w = dot_product(u,v) / dot_product(v,v) * v
+    end function
+end program
+```
+:::
 :::{tab-item} Python
 :sync: tab_Python
 ```{code}python
@@ -145,10 +254,102 @@ def Gramm_Schmidt(B: list[real_array]) -> list[real_array]:
     return B_ort
 ```
 :::
+
+:::{tab-item} Python+Scipy
+:sync: tab_Scipy
+```{code}python
+:linenos:
+:emphasize-lines: 8
+from scipy.linalg import orth
+import numpy as np
+
+B = np.array([[ 1, 1, 0],
+              [-1, 1, 1],
+              [ 1, 0, 1]])
+
+B_orth = orth(B)
+
+print(B_orth)
+```
+:::
+
+
+:::{tab-item} Python+Sympy
+:sync: tab_Sympy
+```{code}python
+:linenos:
+:emphasize-lines: 7
+from sympy.matrices import Matrix, GramSchmidt
+
+u1 = Matrix([1,-1, 1])
+u2 = Matrix([1, 1, 0])
+u3 = Matrix([0, 1, 1])
+
+B = GramSchmidt([u1, u2, u3])
+
+for v in B:
+    print(v)
+
+```
+:::
+
+
 ::::
 
 
 ## Diagonalización de formas cuadráticas
+
+Toda matriz simétrica $2\times 2$ es diagonalizable pues si suponemos que
+
+$$
+A = \begin{pmatrix}
+a & b \\
+b & c
+\end{pmatrix}
+$$
+tenemos que su polinomio característico es: 
+$$
+p(\lambda)=\vert A - \lambda I\vert = \begin{vmatrix}
+a-\lambda & b \\
+b & c-\lambda
+\end{vmatrix} = \lambda^2  - (a+c)\lambda + ac - b^2 
+$$
+y sus raíces vienen dadas por la fórmula para la solución de las ecuaciones de segundo grado:
+$$
+\lambda = \frac{a+b\pm\sqrt{(a+c)^2 -4ac + 4b^2}}{2}=\frac{a+b\pm\sqrt{(a-c)^2  + 4b^2}}{2}
+$$
+como se puede comprobar, o bien existen dos raíces reales distintas, o bien existe una raíz real doble.
+
+Si existen dos raíces reales distintas, $\lambda_1$ y $\lambda_2$, entonces existen dos autovectores $\mathbf{u}_1$ y $\mathbf{u}_2$, asociados a dichos autovalores, y por lo tanto en la base $\mathcal{B}=\left\{\mathbf{u}_1,\mathbf{u}_2\right\}$ la matriz $A'=P^{-1}AP$ es diagonal. 
+
+Por otra parte, si únicamente existe un autovalor $\mu$ doble, para que sea diagonalizable tenemos que ser capaces de encontrar dos autovectores linealmente independientes asociados a $\mu$. Supongamos que llamamos $\mathbf{u}$ a uno de ellos (que tiene que existir) y cuya norma es $1$. Vamos a $\mathbf{v}$ a un vector perteneciente a $\mathbf{u}^\perp$ y cuya norma sea $1$. Esto podemos hacerlo por Gram-Schmidt. 
+
+En la base $\mathbf{B}=\left\{\mathbf{u},\mathbf{v}\right\}$, la matriz $A'$ será de la forma:
+
+$$
+A'=\begin{pmatrix}
+\mu & \alpha \\
+0 & \mu 
+\end{pmatrix}
+$$
+pues sabemos que la primera columna tiene que ser $(\mu,0)$ por ser $f(\mathbf{u})=\mu \mathbf{u}$ y además el polinomio característico tiene que ser $p(\lambda)=(\lambda - \mu)^2$. 
+
+Por otra parte, puesto que $\mathcal{B}$ es una base ortonormal, sabemos que $P^\intercal P = I$. Por lo que 
+
+$$
+A'=P^\intercal A P
+$$
+
+y si $A$ era simétrica, $A'$ tiene que serlo. Con esto concluimos que 
+$$
+A'=\begin{pmatrix}
+\mu & 0 \\
+0 & \mu 
+\end{pmatrix}
+$$
+que efectivamente es diagonal, con lo que $\mathbf{v}$ es también un autovector de $A$. 
+
+Este último resultado, que los subespacios propios sean ortogonales, es algo que se cumplirá en cualquier matriz simétrica.
 
 ::::{prf:property} 
 Los [subespacios propios](#subs_propio) de una matriz simétrica son [subespacios ortogonales](#subs_ortogonales) con respecto al producto escalar usual.
@@ -177,3 +378,21 @@ Supongamos ahora que $X\in V_\lambda$ e $Y\in V_\mu$ con $\lambda \neq \mu$. Ent
 ::::
 
 ## Transformaciones ortogonales
+
+Llamamos transformación a un endomorfismo biyectivo, es decir, a un automorfismo.
+
+Diremos que una transformación es ortogonal si consserva el producto escalar, es decir, para todo $\mathbf{x},\mathbf{y}\in V$ se tiene que cumplir que $f(\mathbf{x})\cdot f(\mathbf{y}) = \mathbf{x}\cdot \mathbf{y}$. 
+
+O con matrices
+$$
+X^\intercal A^\intercal A Y = X^\intercal Y,\quad \forall X, Y \in \mathbb{R}^n
+$$
+
+$$
+X^\intercal \left(A^\intercal A  - I\right)Y = 0,\quad \forall X, Y \in \mathbb{R}^n
+$$
+
+$$
+A^\intercal A= I
+$$
+es decir, la matriz $A$ es ortogonal.
