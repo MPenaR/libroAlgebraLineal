@@ -31,6 +31,9 @@ Dado un endomorfismo $f:U\to U$ decimos que $\mathbf{v}\in U$ es un autovector d
 Dado un endomorfismo $f:U\to U$ decimos que $\lambda\in\mathbb{K}$ es un autovalor de $f$ asociado al autovector $\mathbf{v}$ si $f(\mathbf{v})=\lambda \mathbf{v}$.
 :::
 
+
+
+
 ## Cálculo de los autovalores y autovectores de un endomorfismo.
 
 Vamos a ver como podemos calcular los autovalores y autovectores asociados a un endomorfismo. La ecuación que deben de satisfacer es: 
@@ -63,6 +66,7 @@ $$
 El sistema anterior es un sistema homogéneo por lo tanto $X=\mathbf{0}$ será una de sus soluciones. Si queremos que existan mas soluciones entonces necesariamente tendrá que tratarse de un sistema compatible indeterminado, es decir $\mathrm{det}(A-\lambda I)=0$. 
 
 :::{prf:definition} Polinomio característico
+:label: polinomio_caracteristico
 Llamamos polinomio característico de un endomorfismo $f:U\to U$ al polinomio:
 $$
 p(\lambda)= \det(A-\lambda I)
@@ -155,7 +159,18 @@ f(k\mathbf{u})&=kf(\mathbf{u})\\
 :::
 ::::
 
-## Teorema de Caley-Hamilton
+:::{prf:definition} Subespacio propio
+:label: subespacio_propio
+Dado un endomorfismo $f:V\to V$ con autovalor $\lambda$ llamamos subespacio propio asociado al autovalor $\lambda$ al subespacio vectorial:
+$$
+V_\lambda = \ker\left( f - \lambda \mathrm{Id}\right)
+$$
+formado por todos los autovectores asociados a $\lambda$ y el vector $\mathbf{0}$.
+:::
+
+
+
+## Funciones matriciales y Teorema de Caley-Hamilton
 
 
 Sea $A\in\mathscr{M}_n(\mathbb{K})$ una una matriz diagonalizable por semejanza, es decir $A=PDP^{-1}$ con 
@@ -177,6 +192,9 @@ A^n &= \underset{n\text{ veces}}{\underbrace{(PDP^{-1})(PDP^{-1})\dots (PDP^{-1}
 \end{align}
 
 
+::::{prf:theorem} Caley-Hamilton
+El [polinomio característico](#polinomio_caracteristico) de una matriz $A$ es un polinomio anulador.
+::::
 :::{prf:example} Serie de Neumann
 Dada una matriz $A$ invertible, si la serie:
 $$
