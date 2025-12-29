@@ -75,7 +75,7 @@ $$
 Sustituyendo finalmente los valores de $G$ y $G'$ se obtiene que:
 $$
 I=P^\intercal P
-S$
+$$
 :::
 ::::
 
