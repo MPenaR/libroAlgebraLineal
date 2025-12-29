@@ -156,7 +156,7 @@ $$
 $$
 con 
 $$
-P=\begin{pmatrix}
+P=\frac{1}{\|\mathbf{v}\|^2}\begin{pmatrix}
 v_1^2 & v_1v_2 & \dots & v_1v_n \\
 v_1v_2 & v_2^2 &  \ddots & v_2v_n \\
 \vdots & \ddots & \ddots  & \vdots \\
